@@ -1,8 +1,16 @@
-# Ví Rõ 2.0
+# Ví Rõ 2.1
 
 Sổ tiền cá nhân tiếng Việt, giao diện gọn với font Be Vietnam Pro được đóng kèm. Chạy trực tiếp trên GitHub Pages, không cần build, npm, API key hoặc máy chủ riêng để sử dụng.
 
-## Điểm mới
+## Điểm mới 2.1
+
+- Nhập `1000000` thì ngay dưới ô hiện **1.000.000 ₫**, áp dụng cho số ban đầu, giao dịch, lãi, tỷ giá, ngân sách và mục tiêu. Không sửa nội dung đang gõ. USD có gợi ý đúng đơn vị và dòng quy đổi riêng.
+- **Thêm tiền** có danh mục: Lương, Thưởng, Kinh doanh, Làm thêm, Được tặng, Hoàn tiền, Khác. Danh mục cũ được giữ khi sửa giao dịch.
+- Tổng quan tập trung **Tổng tiền hiện có**, **Nợ phải trả**, nút **+ Thêm tiền** / **− Chi tiêu**. Chi tiết quỹ nằm ở Quỹ của tôi.
+- Bắt đầu bằng tổng tiền và nợ; phần chia quỹ không bắt buộc. Ví dụ tổng 10 triệu, tiết kiệm 2 triệu thì tiền chi tiêu là 8 triệu, tổng vẫn 10 triệu. Nợ được theo dõi riêng, không tự cộng/trừ vào tổng tiền khi khai báo.
+- Trong mục chia quỹ, nhập tiền vay còn giữ để app cảnh báo khi sử dụng; khoản này phải nằm trong tổng tiền và không lớn hơn nợ phải trả. Nếu đã tiêu hết khoản vay trước khi bắt đầu sổ, chỉ nhập nợ, để tiền vay còn giữ = 0.
+
+## Các tính năng khác
 
 - Giao diện trắng / xám với điểm nhấn cyan, bố cục gọn hơn và font tiếng Việt riêng.
 - Nhập giao dịch bằng **USD hoặc VNĐ**. USD tự quy đổi sang VNĐ theo tỷ giá bạn nhập; lịch sử giữ số đô và tỷ giá của từng giao dịch.
@@ -15,7 +23,7 @@ Sổ tiền cá nhân tiếng Việt, giao diện gọn với font Be Vietnam Pr
 
 ## Dùng quỹ sao cho đúng
 
-1. Nhập số dư hiện có **một lần**, không trùng giữa quỹ.
+1. Nhập **Tổng tiền hiện có** và **Nợ phải trả** một lần. Mở phần chia quỹ nếu cần tách tiết kiệm, tiền vay còn giữ hoặc quỹ riêng; phần còn lại tự vào Chi tiêu chung. Tổng tiền bao gồm mọi khoản chia, không cộng thêm các khoản đó lần nữa.
 2. Tạo quỹ như Ăn uống, Công việc, Thiết bị. Quỹ mới có **0 đồng**.
 3. Chọn **Chuyển quỹ** để phân bổ tiền từ Chi tiêu chung sang quỹ mới. Không dùng Thêm tiền nếu chỉ chia số tiền đã có.
 4. Ghi chi tiêu vào đúng quỹ. App chỉ trừ quỹ được chọn; thiếu tiền thì chuyển bổ sung trước, không tự lấy từ quỹ khác.

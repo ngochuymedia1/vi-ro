@@ -1,6 +1,6 @@
 {
   "name": "vi-ro",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "description": "Static Vietnamese personal finance app; npm is only needed for development tests.",
   "scripts": {

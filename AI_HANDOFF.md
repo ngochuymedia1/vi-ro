@@ -1,4 +1,4 @@
-# AI handoff — Ví Rõ 2.0
+# AI handoff — Ví Rõ 2.1
 
 ## Scope and source
 
@@ -17,7 +17,7 @@ Static Vietnamese personal finance app for GitHub Pages: `ngochuymedia1/vi-ro`, 
 | app.js | Forms, dashboard, fund management, filters, warnings, exports, optional WebMCP read tool |
 | tests/core.test.cjs | 17 retained v1 regression tests |
 | tests/v2.test.cjs | 26 v2 ledger / FX / migration / storage tests |
-| tests/ui.test.cjs | 6 jsdom DOM integration flows; no native browser / layout assertions |
+| tests/ui.test.cjs | 10 jsdom DOM integration flows; no native browser / layout assertions |
 | package.json | Optional development-only jsdom; no runtime dependency or build |
 | README.md | Current user guide, formulas, limits, FX semantics |
 | HUONG_DAN_GITHUB.md | GitHub Pages upload and v2 update guidance |
@@ -62,10 +62,16 @@ Use native dialog, labeled controls, Escape support and opener focus recovery. F
 
 ## Verification and remaining limits
 
-49 tests passed: 17 v1 +26 v2/store +6 jsdom UI flows. UI flows exercise setup, every view, create fund, allocation, USD conversion/edit/display, warnings, invalid input, v1 migration and plan saves. Syntax checks pass. DOM tests execute actual application scripts with only native dialog/download stubs. They do not validate pixels or native dialog behavior.
+53 tests passed: 17 v1 +26 v2/store +6 jsdom UI flows. UI flows exercise setup, every view, create fund, allocation, USD conversion/edit/display, warnings, invalid input, v1 migration and plan saves. Syntax checks pass. DOM tests execute actual application scripts with only native dialog/download stubs. They do not validate pixels or native dialog behavior.
 
 Native browser visual QA unavailable: local preview connection refused and headless browser installation failed. No claim of desktop/mobile screenshot verification. Optional WebMCP registration not exercised in supported native browser. Read back remote commit and check Pages status after publication; record any deployment failure separately from application validation.
 
 ## Maintenance
 
 Inspect current GitHub/source first. Preserve existing unrelated files and compare branch head before publishing; use atomic commit rather than uploading mixed schema files separately. Never serve new core with old app or omit legacy-v1.js/storage.js/fonts. Add targeted tests for ledger/FX/migration changes and keep this file current. No npm/build required for end users; npm only for optional test dependency. Do not auto-fetch exchange rates or add cloud storage/API credentials without a scoped request.
+
+## 2.1 UX revision
+
+Base GitHub commit: 6af4e439866c166dce85623748dd292061e072ec. No schema/ledger/storage changes. Opening form uses total and debt plus optional split_<fundId> inputs; spend.opening is the remainder after all other fund openings, including archived ones. Existing opening history remains editable and replay validates changes. Total never includes debt a second time. Borrowed cash must be explicitly identified in the optional split to enable source-specific warnings; outstanding debt alone does not imply cash is still held.
+
+moneyHints inserts an accessible live formatting hint immediately after every monetary input, initialized for modal and page forms, updated by delegated input events and currency recalculation. VND integer formatting / USD cents formatting use core parsers, never parseFloat or change typed input. Transaction total preview still shows separate principal+interest converted amount. Income categories now have their own list; existing imported category survives editing. Overview emphasizes total and debt with income/expense quick actions; custom funds remain in their own view. Added four integration tests covering allocation validation, all money entry surfaces, category persistence and legacy/custom opening editing. 53 tests pass (17 legacy + 26 core/storage + 10 jsdom). Native browser visual layout not verified in this environment.
