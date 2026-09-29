@@ -1,71 +1,89 @@
-# Ví Rõ — sổ tiền cá nhân
+# Ví Rõ 2.0
 
-Ứng dụng tiếng Việt để quản lý tiền chi tiêu, tiết kiệm và tiền vay. Chạy trên GitHub Pages, không cần máy chủ riêng, tài khoản trong app, API key hay cài thư viện.
+Sổ tiền cá nhân tiếng Việt, giao diện gọn với font Be Vietnam Pro được đóng kèm. Chạy trực tiếp trên GitHub Pages, không cần build, npm, API key hoặc máy chủ riêng để sử dụng.
 
-## Đưa lên GitHub
+## Điểm mới
 
-Đọc **HUONG_DAN_GITHUB.md** trong thư mục này. Các tệp `index.html`, `styles.css`, `core.js`, `app.js` phải nằm cùng cấp ở gốc repository. Không tải tệp ZIP thay cho các tệp đã giải nén.
+- Giao diện trắng / xám với điểm nhấn cyan, bố cục gọn hơn và font tiếng Việt riêng.
+- Nhập giao dịch bằng **USD hoặc VNĐ**. USD tự quy đổi sang VNĐ theo tỷ giá bạn nhập; lịch sử giữ số đô và tỷ giá của từng giao dịch.
+- Nút **VND / USD** phía trên đổi cách xem số dư. USD hiển thị là ước tính theo tỷ giá đang chọn, không thay đổi số tiền đã ghi.
+- Tạo nhiều **quỹ chi tiêu / tiết kiệm**, đặt tên, ngân sách tháng và mục tiêu số dư cho từng quỹ.
+- Chuyển quỹ, xem lịch sử theo quỹ, lưu trữ / khôi phục quỹ đã hết tiền.
+- Giữ nguyên các tính năng cũ: thu chi, khoản vay, trả gốc + lãi, nhắc lịch trả nợ, lọc / sửa / xóa giao dịch, JSON và CSV.
+- Hỗ trợ trả riêng lãi: chọn Trả nợ, nhập gốc = 0 và lãi / phí > 0.
+- Tự đọc sổ / bản sao lưu phiên bản 1 và kiểm tra số dư không đổi. Giữ bản trước nâng cấp riêng trên trình duyệt.
 
-## Tính năng
+## Dùng quỹ sao cho đúng
 
-- Ba quỹ: tiền riêng để chi tiêu, tiết kiệm, tiền vay còn lại. Theo dõi riêng tổng dư nợ gốc.
-- Thêm tiền, chi tiêu, chuyển quỹ, nhận khoản vay, trả gốc kèm lãi / phí.
-- Cảnh báo bắt buộc xác nhận khi tiêu tiền vay hoặc dùng tiết kiệm.
-- Lịch sử có sửa, xóa, lọc tháng, loại, quỹ và tìm kiếm ghi chú / danh mục.
-- Tổng quan thu chi, phân bổ chi tiêu theo danh mục, tài sản ròng trong sổ.
-- Ngân sách tháng, mục tiêu tiết kiệm, nhắc kỳ trả nợ khi mở ứng dụng.
-- Tự lưu, giữ bản trước lần lưu gần nhất, xuất / nhập JSON, xuất CSV theo bộ lọc.
-- Kiểm tra lịch sử theo ngày để chặn số dư âm hoặc trả gốc vượt dư nợ.
-- Giao diện thích ứng màn hình nhỏ, điều hướng bàn phím, hộp thoại chuẩn HTML.
+1. Nhập số dư hiện có **một lần**, không trùng giữa quỹ.
+2. Tạo quỹ như Ăn uống, Công việc, Thiết bị. Quỹ mới có **0 đồng**.
+3. Chọn **Chuyển quỹ** để phân bổ tiền từ Chi tiêu chung sang quỹ mới. Không dùng Thêm tiền nếu chỉ chia số tiền đã có.
+4. Ghi chi tiêu vào đúng quỹ. App chỉ trừ quỹ được chọn; thiếu tiền thì chuyển bổ sung trước, không tự lấy từ quỹ khác.
+5. Quỹ tiết kiệm luôn cảnh báo trước khi chi, trả nợ hoặc chuyển ra. Quỹ chi tiêu có thể dùng bình thường.
+6. Có thể sửa tên, ngân sách và mục tiêu. Loại quỹ không đổi sau khi tạo để tránh thay đổi ý nghĩa lịch sử.
+7. Khi không dùng nữa, chuyển hết tiền ra rồi **Lưu trữ** quỹ. Lịch sử không bị xóa. Ba quỹ mặc định luôn được giữ.
 
-## Bắt đầu
+**Tổng tiền = tổng số dư của các quỹ.** Ngân sách / mục tiêu chỉ là giới hạn / đích đến, không cộng thêm tiền. Chuyển quỹ không được tính thành thu nhập hoặc chi tiêu. Tổng tiền chi tiêu / tiết kiệm trên Tổng quan cộng tất cả quỹ cùng loại.
 
-1. Chọn **Nhập số dư ban đầu**. Không nhập trùng tiền giữa các quỹ.
-2. Ví dụ bạn có 5 triệu riêng, 2 triệu tiết kiệm, đã vay 20 triệu nhưng chỉ còn 15 triệu: nhập lần lượt 5, 2, 15 và 20 triệu. Tổng tiền giữ 22 triệu; tài sản ròng trong sổ 2 triệu.
-3. Chọn **Thêm giao dịch** để ghi các khoản phát sinh sau thời điểm số dư ban đầu.
-4. Trong **Kế hoạch**, đặt ngân sách, mục tiêu và lịch nhắc trả nợ nếu cần.
-5. Trong **Dữ liệu & sao lưu**, tải JSON sau các lần cập nhật quan trọng. CSV chỉ dùng để đọc / phân tích trong Excel, không dùng để phục hồi.
+## USD và tỷ giá
 
-## Quy tắc tính toán
+- Trong Ghi giao dịch, chọn USD, nhập như `100` hoặc `100.50`, sau đó nhập tỷ giá cho **1 USD** (VNĐ nguyên).
+- App cho xem VNĐ trước khi lưu. Ví dụ minh họa: 100 USD × tỷ giá bạn nhập 25.000 = 2.500.000 VNĐ. Đây chỉ là ví dụ, không phải tỷ giá thị trường.
+- Tỷ giá là **tỷ giá bạn chọn**, không tự cập nhật từ ngân hàng. Dùng tỷ giá thực tế khi giao dịch / ngân hàng quy đổi nếu bạn muốn đối chiếu chính xác.
+- USD tối đa hai chữ số thập phân, không dùng dấu phân cách hàng nghìn. VNĐ là số nguyên, có thể dùng dấu chấm hàng nghìn, ví dụ `150.000`.
+- VNĐ quy đổi được làm tròn đến đồng, bằng số nguyên để tránh sai số nhị phân. Gốc và lãi được làm tròn riêng rồi cộng.
+- Đổi VND / USD trong biểu mẫu sẽ xóa số tiền đang nhập để tránh hiểu nhầm giá trị cũ là đơn vị mới.
+- Tỷ giá vừa ghi bằng USD được dùng làm tỷ giá hiển thị gần nhất. Các giao dịch trước đó giữ nguyên tỷ giá và giá trị VNĐ đã lưu.
+- Nút USD ở thanh trên chỉ hiển thị giá trị quy đổi tham khảo. App không phải ví đa ngoại tệ thực giữ USD, không tự tính chênh lệch tỷ giá / lãi lỗ ngoại hối.
+- Số dư ban đầu, ngân sách và mục tiêu nhập bằng VNĐ; chức năng nhập USD áp dụng cho thu, chi, chuyển quỹ, nhận vay và trả nợ.
 
-| Thao tác | Tiền đang giữ | Dư nợ | Thu / chi tháng |
+## Quy tắc nợ
+
+| Thao tác | Tiền đang giữ | Dư nợ | Báo cáo thu / chi |
 |---|---|---|---|
-| Thêm tiền riêng | Tăng quỹ chi tiêu hoặc tiết kiệm | Không đổi | Tính là tiền thêm vào |
-| Chi tiêu | Giảm quỹ được chọn | Không đổi, kể cả tiêu tiền vay | Tính chi tiêu |
-| Chuyển chi tiêu ↔ tiết kiệm | Tổng tiền không đổi | Không đổi | Không tính thu / chi |
-| Nhận tiền vay | Tăng quỹ tiền vay | Tăng tương ứng | Không tính thu nhập |
-| Trả nợ | Giảm quỹ nguồn theo gốc + lãi / phí | Giảm phần gốc | Chỉ lãi / phí tính chi tiêu |
+| Thêm tiền | Tăng quỹ tiền riêng | Không đổi | Thu nhập |
+| Chi tiêu | Giảm quỹ nguồn | Không đổi | Chi tiêu |
+| Chuyển quỹ | Tổng không đổi | Không đổi | Không tính thu / chi |
+| Nhận tiền vay | Tăng quỹ Tiền vay | Tăng tương ứng | Không tính thu nhập |
+| Trả nợ | Giảm nguồn theo gốc + lãi | Giảm phần gốc | Chỉ lãi / phí tính chi tiêu |
 
-Tiền vay không được chuyển thẳng vào tiền riêng hoặc tiết kiệm. Khi trả gốc bằng tiền riêng / tiết kiệm mà tiền vay còn giữ lớn hơn dư nợ còn lại, phần chênh lệch chuyển sang tiền riêng có thể chi. Ví dụ: giữ 10 triệu tiền vay và trả hết 10 triệu nợ bằng tiền tiết kiệm thì 10 triệu tiền vay còn giữ không còn gắn với khoản nợ này. App giữ tổng tiền và tài sản ròng nhất quán.
+Tiền vay nằm riêng trong một quỹ tổng, không được chuyển sang quỹ tiền riêng để tránh làm mất cảnh báo. Có thể chi hoặc trả nợ từ quỹ này. Tiêu tiền vay **không làm giảm nợ**.
 
-**Tổng tiền giữ = tiền chi tiêu + tiết kiệm + tiền vay còn lại.**
+Khi trả gốc từ tiền riêng / tiết kiệm khiến tiền vay còn giữ lớn hơn dư nợ còn lại, phần chênh lệch được chuyển vào quỹ mặc định Chi tiêu chung: phần đó không còn bị ràng buộc bởi khoản nợ đã trả. Quy tắc này giữ giống phiên bản 1.
 
-**Tài sản ròng trong sổ = tổng tiền giữ − dư nợ gốc.** Chỉ tính các khoản bạn đã nhập, không bao gồm bất động sản hoặc tài sản khác ngoài sổ.
+**Tài sản ròng trong sổ = tổng tiền đang giữ − dư nợ gốc.** Chỉ tính tiền / nợ bạn đã ghi, không tính tài sản khác. Lịch nhắc do bạn tự nhập và tự cập nhật sau khi trả; không tự tính lãi hoặc tự trừ tiền.
 
-Số dư quỹ luôn là số hiện tại toàn bộ lịch sử. Bộ lọc tháng chỉ thay đổi báo cáo và danh sách giao dịch. Giao dịch cùng ngày tính theo thứ tự tạo ban đầu. Sửa giữ vị trí đó; xóa rồi thêm lại sẽ có thứ tự mới. Bạn có thể sửa / xóa nhưng không thể tạo lịch sử có số dư âm.
+## Lưu dữ liệu và nâng cấp
 
-## Dữ liệu và giới hạn
+- Dữ liệu nằm trong localStorage tại địa chỉ website và hồ sơ trình duyệt này. App không gửi giao dịch lên GitHub hoặc bên thứ ba.
+- Xuất **JSON** định kỳ để giữ mọi quỹ / giao dịch / tỷ giá. Nhập JSON thay thế sổ, không gộp hai sổ. Có xem số dư trước xác nhận.
+- **CSV** xuất giao dịch theo bộ lọc để xem trong Excel; kèm cột USD gốc và tỷ giá. CSV không dùng để phục hồi.
+- App giữ bản trước lần lưu gần nhất, và một bản phiên bản 1 riêng trước lần nâng cấp đầu tiên. Tải tại Dữ liệu & sao lưu → Bản trước nâng cấp.
+- Sổ cũ được chuyển trong bộ nhớ, kiểm tra số dư tương đương; lần ghi thành công đầu tiên lưu định dạng mới. Tệp JSON v2 không mở được bằng app v1. Muốn quay lại v1, dùng bản sao lưu v1 phù hợp.
+- Không tự đồng bộ giữa máy, không đăng nhập, không mã hóa sổ hoặc tệp JSON. Không dùng chế độ ẩn danh cho dữ liệu cần giữ lâu.
+- Xóa dữ liệu trình duyệt, đổi tên repository / đường dẫn hoặc đổi máy: xuất JSON trước, nhập vào địa chỉ mới. Người dùng chung hồ sơ hoặc mã cùng origin có thể truy cập sổ.
+- Khi tab khác đã thay đổi sổ, app yêu cầu tải lại để tránh ghi đè. Hết dung lượng / bị chặn lưu trữ sẽ báo lỗi; không coi giao dịch đó đã lưu.
+- Tối đa 100 quỹ (gồm quỹ đã lưu trữ), 10.000 giao dịch, 1.000 tỷ VNĐ cho từng số tiền / số dư quỹ, JSON nhập tối đa 8 MB.
+- Số dư quỹ luôn là số hiện tại toàn bộ sổ; bộ lọc tháng áp dụng cho báo cáo. Giao dịch cùng ngày tính theo thứ tự tạo; sửa giữ nguyên thứ tự, xóa rồi thêm lại tạo thứ tự mới.
+- Không có PWA hoặc cơ chế bảo đảm mở lại khi ngoại tuyến.
 
-- Lưu cục bộ bằng localStorage theo địa chỉ app và hồ sơ trình duyệt. GitHub chỉ cung cấp các tệp giao diện và chương trình; app không gửi giao dịch lên GitHub.
-- Không tự đồng bộ giữa thiết bị, không đăng nhập, không có khóa ứng dụng hoặc mã hóa JSON. Người dùng chung hồ sơ trình duyệt có thể xem dữ liệu. Tránh chế độ ẩn danh.
-- Đổi tên repository / tên miền, dùng trình duyệt khác, xóa dữ liệu trang web hoặc chuyển máy: xuất JSON từ địa chỉ cũ rồi nhập vào địa chỉ mới.
-- Các website cùng origin có thể tiếp cận vùng lưu trữ của nhau. Chỉ đặt app cùng các website đáng tin trên tên miền GitHub Pages của bạn.
-- Nhập JSON **thay thế** sổ, không gộp để tránh giao dịch trùng. Có xem số dư trước khi xác nhận. Bản trước lần lưu gần nhất hỗ trợ khôi phục; đây không phải bản sao lưu độc lập.
-- Nếu không lưu được do hạn mức hoặc trình duyệt chặn, app báo lỗi và không coi giao dịch đó là đã lưu.
-- Tối đa 10.000 giao dịch, 1.000 tỷ đồng cho từng số tiền / số dư, tệp nhập tối đa 8 MB. Tiền tính bằng số nguyên VNĐ, không có số lẻ.
-- Một ngân sách chung cho mỗi tháng, một mục tiêu tiết kiệm và một lịch nhắc trả nợ. Theo dõi nợ tổng; chưa chia theo từng chủ nợ. Không tự tính lãi, tự trừ tiền, nhắc khi đóng app hoặc kết nối ngân hàng.
-- Chưa có cơ chế cài PWA / bảo đảm tải lại khi ngoại tuyến. Trang đang mở vẫn cho ghi chép nếu mất mạng, nhưng để mở lại app cần truy cập được các tệp website.
-- Với khoản chỉ trả lãi, ghi **Chi tiêu**, ghi chú “Lãi vay”, chọn quỹ nguồn phù hợp; giao dịch **Trả nợ** yêu cầu gốc lớn hơn 0.
+## Đưa lên GitHub / chạy trên máy
 
-## Phát triển và kiểm tra
+Đọc `HUONG_DAN_GITHUB.md`. Tải **toàn bộ** mã và thư mục `assets`, không chỉ riêng index.html. Không đưa JSON / CSV tài chính lên GitHub Public. Nếu mã đã được cập nhật tự động, chờ Pages xuất bản rồi nhấn Ctrl+Shift+R tại địa chỉ cũ.
 
-Ứng dụng không có bước build. Nếu đã có Python: chạy `python -m http.server 8080` trong thư mục này rồi mở `http://localhost:8080`. Nên dùng HTTP / HTTPS; mở `index.html` trực tiếp có hành vi lưu trữ khác nhau tùy trình duyệt và không được khuyến nghị cho dữ liệu thật.
+Không cần cài npm để dùng. Để phát triển trên máy có Python: `python -m http.server 8080`, mở http://localhost:8080. Không khuyến nghị mở file:// cho dữ liệu thật.
 
-Nếu đã cài Node.js, chạy kiểm tra logic:
+Kiểm tra logic bằng Node.js:
 
 ```sh
-node --test tests/core.test.cjs
-node --check app.js
+node --test tests/core.test.cjs tests/v2.test.cjs
 ```
 
-Xem `AI_HANDOFF.md` khi cần nhờ AI sửa tính năng. Không commit dữ liệu JSON / CSV cá nhân. `.gitignore` bảo vệ khi dùng Git trên máy; tải tệp thủ công qua website GitHub vẫn cần tự kiểm tra.
+Kiểm tra tương tác biểu mẫu trong DOM mô phỏng (cần cài dev dependency):
+
+```sh
+npm install
+npm test
+```
+
+Các kiểm tra DOM không thay cho kiểm tra bố cục trên trình duyệt thật. Xem `AI_HANDOFF.md` để sửa ứng dụng. Font Be Vietnam Pro được phân phối kèm giấy phép SIL OFL trong `assets/fonts/OFL.txt`.

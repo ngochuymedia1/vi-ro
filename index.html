@@ -7,28 +7,30 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <title>Ví Rõ · Tiền của bạn, rõ ràng hơn</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23153c4a'/%3E%3Cpath d='M15 20l17 28 17-28M24 20l8 14 8-14' stroke='%237ce0ee' stroke-width='5' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css"><script defer src="core.js"></script><script defer src="app.js"></script>
+  <link rel="preload" href="assets/fonts/BeVietnamPro-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css"><script defer src="legacy-v1.js"></script><script defer src="core.js"></script><script defer src="storage.js"></script><script defer src="app.js"></script>
 </head>
 <body>
   <a class="skip" href="#main">Đến nội dung</a>
   <aside class="sidebar">
-    <a class="brand" href="#overview"><span class="brand-mark">V<span>R</span></span><span>ví rõ<small>SỔ TIỀN CÁ NHÂN</small></span></a>
+    <a class="brand" href="#overview"><span class="brand-mark" aria-hidden="true">v.</span><span>ví rõ<small>Sổ tiền cá nhân</small></span></a>
     <nav aria-label="Điều hướng chính">
       <button data-view="overview" class="active"><span aria-hidden="true">▦</span>Tổng quan</button>
       <button data-view="transactions"><span aria-hidden="true">⇄</span>Giao dịch</button>
+      <button data-view="funds"><span aria-hidden="true">▱</span>Quỹ của tôi</button>
       <button data-view="planning"><span aria-hidden="true">◎</span>Kế hoạch</button>
       <button data-view="backup"><span aria-hidden="true">▤</span>Dữ liệu & sao lưu</button>
     </nav>
-    <div class="sidebar-note"><span class="small-label">MỘT THÓI QUEN NHỎ</span><p>Ghi lại hôm nay.<br>Chủ động ngày mai.</p><span class="muted">Dữ liệu nằm trên trình duyệt này.</span></div>
+    <div class="sidebar-note"><span class="muted">Lưu trên thiết bị này</span><button id="quick-backup" class="quiet">Xuất bản sao lưu</button></div>
     <button class="sidebar-bottom" id="guide-button">? <span>Cách sử dụng</span></button>
   </aside>
   <div class="workspace">
-    <header class="topbar"><div class="breadcrumb">Sổ tiền của tôi <span>/</span> <strong id="breadcrumb-view">Tổng quan</strong></div><span class="save-status" id="save-status">Tự lưu trên thiết bị</span></header>
+    <header class="topbar"><div class="breadcrumb">Sổ tiền của tôi <span>/</span> <strong id="breadcrumb-view">Tổng quan</strong></div><div class="top-actions"><span class="save-status" id="save-status">Tự lưu trên thiết bị</span><div class="currency-switch" role="group" aria-label="Đơn vị hiển thị"><button data-display="VND">VND</button><button data-display="USD">USD</button></div><button class="quiet" id="rate-button" aria-label="Thiết lập tỷ giá USD">Tỷ giá</button></div></header>
     <main id="main" tabindex="-1">
       <div id="global-notice"></div>
       <div class="page-head"><div><p class="eyebrow" id="page-eyebrow">NHÌN RÕ DÒNG TIỀN</p><h1 id="page-title">Tổng quan</h1></div><div class="head-actions"><label class="month-label"><span class="sr-only">Tháng báo cáo</span><input id="month" type="month"></label><button class="primary" id="add-button">+ Thêm giao dịch</button></div></div>
       <section id="view" aria-label="Nội dung sổ tiền"></section>
-      <footer><span>Ví Rõ <span class="muted">/</span> phiên bản 1.0</span><span>Tiền vay không phải thu nhập.</span></footer>
+      <footer><span>Ví Rõ · 2.0</span><span id="currency-note">Sổ tiền ghi nhận bằng VNĐ.</span></footer>
     </main>
   </div>
   <dialog id="modal" aria-labelledby="modal-title"><div id="modal-content"></div></dialog>

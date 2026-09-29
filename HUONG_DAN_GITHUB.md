@@ -6,7 +6,7 @@ Bạn chỉ cần trình duyệt và tài khoản GitHub. Không cần cài Node
 
 1. Tải `ViRo_GitHub_Pages_v1.zip` về máy Windows.
 2. Nhấp chuột phải → **Extract All… / Giải nén tất cả** → **Extract**.
-3. Mở thư mục `ViRo`. Bạn sẽ thấy `index.html`, `styles.css`, `core.js`, `app.js`, các tệp hướng dẫn và thư mục `tests`.
+3. Mở thư mục `ViRo`. Bạn sẽ thấy `index.html`, `styles.css`, `legacy-v1.js`, `core.js`, `storage.js`, `app.js`, thư mục `assets` và các tệp hướng dẫn / kiểm tra.
 
 ## 2. Tạo nơi chứa mã trên GitHub
 
@@ -25,7 +25,7 @@ Public nghĩa là mọi người có thể xem mã ứng dụng. Các khoản th
 1. Trong repository vừa tạo, mở tab **Code**.
 2. Chọn **Add file → Upload files**. Nếu repository trống, có thể bấm liên kết **uploading an existing file**.
 3. Kéo **nội dung bên trong thư mục ViRo** đã giải nén vào vùng tải lên. Không kéo tệp ZIP và không kéo cả thư mục ngoài khiến `index.html` bị lồng một cấp.
-4. Ít nhất phải có đủ bốn tệp cùng cấp: `index.html`, `styles.css`, `core.js`, `app.js`. Các hướng dẫn và tests có thể tải cùng. `.nojekyll` đi kèm nếu hiện trong cửa sổ chọn tệp; app này không phụ thuộc vào việc nhìn thấy tệp ẩn đó.
+4. Phải tải đủ các tệp cùng cấp: `index.html`, `styles.css`, `legacy-v1.js`, `core.js`, `storage.js`, `app.js` và thư mục `assets` (chứa font). Các hướng dẫn và tests có thể tải cùng. `.nojekyll` đi kèm nếu hiện trong cửa sổ chọn tệp; app này không phụ thuộc vào việc nhìn thấy tệp ẩn đó.
 5. Ở phần **Commit changes**, nhập `Add Vi Ro app` rồi nhấn **Commit changes**.
 6. Kiểm tra trên tab Code: bạn phải nhìn thấy `index.html` ngay, không cần mở thêm thư mục con.
 
@@ -73,7 +73,7 @@ Hai máy không tự đồng bộ. Nên chỉ dùng một bản sổ chính tạ
 |---|---|
 | Trang báo 404 | Pages đã xuất bản xong chưa; Source, nhánh main và / (root) có đúng không; index.html có ở gốc không |
 | Trang chỉ hiện chữ, thiếu giao diện | styles.css có cùng cấp và viết đúng chữ thường không |
-| Nhấn nút không có phản hồi | core.js và app.js có đủ ở cùng cấp không; JavaScript có bị tắt hoặc chặn không |
+| Nhấn nút không có phản hồi | legacy-v1.js, core.js, storage.js và app.js có đủ ở cùng cấp không; JavaScript có bị tắt hoặc chặn không |
 | Không thấy số liệu trên máy khác | Dữ liệu nằm trên máy đã nhập; xuất / nhập JSON để chuyển |
 | Tab khác đã thay đổi dữ liệu | Chọn tab có dữ liệu mới nhất; tải lại tab cũ trước khi nhập tiếp |
 | Giao dịch bị báo không đủ tiền | Kiểm tra đúng quỹ, ngày giao dịch, gốc + lãi và số dư tại thời điểm đó |
@@ -85,3 +85,9 @@ Hướng dẫn xuất bản được đối chiếu tài liệu chính thức Gi
 - https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
 
 Giao diện GitHub có thể đổi vị trí một số nút theo thời gian.
+
+## Nâng cấp lên Ví Rõ 2.0
+
+Nếu mã đã được cập nhật trong repository, không cần tải lại ZIP. Chờ Pages xuất bản rồi mở đúng địa chỉ cũ và nhấn Ctrl+Shift+R. Sổ phiên bản 1 được đọc tự động, kiểm tra giữ nguyên số dư, và lưu bản trước nâng cấp riêng khi bạn ghi thay đổi đầu tiên. Có thể tải bản cũ ở Dữ liệu & sao lưu → Bản trước nâng cấp. Nên xuất JSON trước khi nâng cấp.
+
+Bản 2.0 dùng thêm legacy-v1.js, storage.js và assets/fonts; khi tải mã thủ công, phải tải toàn bộ các tệp này. Không chỉ thay riêng index.html hoặc app.js.
